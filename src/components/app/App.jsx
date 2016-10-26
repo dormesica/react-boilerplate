@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import state from '../../store/store';
 
 import './App.css';
+import CounterContainer from '../Counter/Counter'
 
 
 class App extends Component {
@@ -16,6 +16,7 @@ class App extends Component {
                         change the <code>src/App/app.jsx</code> file to get started
                     </p>
                 </div>
+                <CounterContainer></CounterContainer>
             </div>
         );
     }
