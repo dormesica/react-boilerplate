@@ -7,18 +7,18 @@ import * as counterActions from '../../actions/counter.action';
 
 
 export class Counter extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        this._onAddClick = this._onAddClick.bind(this);
-        this._onSubtractClick = this._onSubtractClick.bind(this);
+        this.onAddClick = this.onAddClick.bind(this);
+        this.onSubtractClick = this.onSubtractClick.bind(this);
     }
 
-    _onAddClick() {
+    onAddClick() {
         this.props.dispatch(counterActions.addAction(1));
     }
 
-    _onSubtractClick() {
+    onSubtractClick() {
         this.props.dispatch(counterActions.subtractAction(1));
     }
 
@@ -29,8 +29,8 @@ export class Counter extends Component {
                     {'Counter: ' + this.props.count}
                 </span>
                 <div>
-                    <AddButton onClick={this._onAddClick}/>
-                    <SubtractButton onClick={this._onSubtractClick}/>
+                    <AddButton onClick={this.onAddClick}/>
+                    <SubtractButton onClick={this.onSubtractClick}/>
                 </div>
             </div>
         );
