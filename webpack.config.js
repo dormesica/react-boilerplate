@@ -4,11 +4,7 @@ const webpack = require('webpack');
 const debugModeEnabled = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    entry: [
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
-        './src/index.jsx'
-    ],
+    entry: './src/index.jsx',
     output: {
         path: path.join(__dirname, '/dist/'),
         filename: 'bundle.js'
@@ -19,7 +15,7 @@ module.exports = {
             {
                 test: /\.js[x]?$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'react-hot!babel'
+                loader: 'babel'
             },
             {
                 test: /\.css$/,
@@ -31,14 +27,18 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     devServer: {
-        contentBase: __dirname,
-        hot: true
+        hostoryApiFallback: true
     },
-    plugins: debugModeEnabled ? [
-        new webpack.HotModuleReplacementPlugin()
-    ] : [
+    plugins: debugModeEnabled ? [ ] : [
+        new webpack.EnvironmentPlugin(['NOVE_ENV']),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
+        new webpack.optimize.UglifyJsPlugin({ 
+            mangle: false, 
+            sourcemap: false,
+            compress: true,
+            comments: false,
+            beautify: false
+        })
     ]
 };
