@@ -1,5 +1,5 @@
-import example from './middleware/example-middleware'
+import log from './middleware/log';
 
 export default [
-    example
+    log
 ];

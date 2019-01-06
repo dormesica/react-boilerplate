@@ -1,5 +1,5 @@
-import exampleReducer from './reducers/example-reducer';
+import products from './reducers/products';
 
 export default {
-    example: exampleReducer
+    products,
 };
