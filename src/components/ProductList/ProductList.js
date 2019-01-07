@@ -8,7 +8,11 @@ import './ProductList.css';
 class ProductList extends Component {
     render() {
         return (
-            <div className="ProductsList-container">
+            <div className="ProductList-container">
+                <div className="ProductList-title">
+                    <span>Name</span>
+                    <span>Price</span>
+                </div>
                 {this.props.products.map(product => (
                     <ProductItem key={product.name} name={product.name} price={product.price} />
                 ))}

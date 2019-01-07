@@ -1,4 +1,10 @@
-.ProductsList-container {
+.ProductList-container {
     width: 200px;
     margin: auto;
+}
+
+.ProductList-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }

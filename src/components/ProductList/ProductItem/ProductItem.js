@@ -8,7 +8,7 @@ class ProductItem extends Component {
         return (
             <div className="ProductItem-container">
                 <span>{this.props.name}</span>
-                <span>{this.props.price}</span>
+                <span>{this.props.price}$</span>
             </div>
         );
     }

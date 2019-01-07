@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './ProductInput.css';
+import ErrorMessage from '../common/ErrorMessage';
 
 const defaultState = {
     name: '',
@@ -20,38 +21,48 @@ class ProductInput extends Component {
     }
 
     render() {
+        const { error, name, price } = this.state;
+
         return (
-            <div className="ProductInput-container">
-                <input
-                    className="ProductInput-input"
-                    placeholder="Name"
-                    type="text"
-                    value={this.state.name}
-                    onChange={this._onNameChange}
-                />
-                <input
-                    className="ProductInput-input"
-                    placeholder="Price"
-                    type="number"
-                    value={this.state.price}
-                    onChange={this._onPriceChange}
-                />
-                <button className="ProductInput-submit" onClick={this._onSubmit}>
-                    Add
-                </button>
-            </div>
+            <React.Fragment>
+                <div className="ProductInput-container">
+                    <input
+                        className="ProductInput-input"
+                        placeholder="Name"
+                        type="text"
+                        value={name}
+                        onChange={this._onNameChange}
+                    />
+                    <input
+                        className="ProductInput-input"
+                        placeholder="Price"
+                        type="number"
+                        value={price}
+                        onChange={this._onPriceChange}
+                    />
+                    <button className="ProductInput-submit" onClick={this._onSubmit}>
+                        Add
+                    </button>
+                </div>
+                {error ? <ErrorMessage message={error} /> : null}
+            </React.Fragment>
         );
     }
 
     _onNameChange({ target: { value: name } }) {
-        this.setState({ name });
+        this.setState({ name, error: undefined });
     }
 
     _onPriceChange({ target: { value } }) {
-        this.setState({ price: Number(value) });
+        this.setState({ price: Number(value), error: undefined });
     }
 
     _onSubmit() {
+        const { name, price } = this.state;
+        if (!name || price > 0) {
+            return this.setState({ error: 'Missing properties' });
+        }
+
         this.props.addProduct(this.state.name, this.state.price);
         this.setState({ ...defaultState });
     }
