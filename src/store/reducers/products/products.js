@@ -7,7 +7,7 @@ export default function(state = defaultState, action) {
 
     switch (action.type) {
         case actionTypes.ADD:
-            let { name, price } = action.payload;
+            const { name, price } = action.payload;
             newState = [...state, { name, price }];
             break;
         case actionTypes.REMOVE:

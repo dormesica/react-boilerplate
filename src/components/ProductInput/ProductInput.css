@@ -1,0 +1,14 @@
+.ProductInput-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: auto;
+}
+
+.ProductInput-input {
+    width: 100px;
+}
+
+.ProductInput-submit {
+    width: 50px;
+}
