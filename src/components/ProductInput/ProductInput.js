@@ -59,7 +59,7 @@ class ProductInput extends Component {
 
     _onSubmit() {
         const { name, price } = this.state;
-        if (!name || price > 0) {
+        if (!name || price <= 0) {
             return this.setState({ error: 'Missing properties' });
         }
 

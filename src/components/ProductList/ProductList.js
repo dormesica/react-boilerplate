@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import ProductItem from './ProductItem';
 
@@ -21,13 +21,13 @@ class ProductList extends Component {
     }
 }
 
-// ProductList.propTypes = {
-//     products: PropTypes.arrayOf([
-//         PropTypes.objectOf({
-//             name: PropTypes.string.isRequired,
-//             price: PropTypes.number.isRequired,
-//         }),
-//     ]).isRequired,
-// };
+ProductList.propTypes = {
+    products: PropTypes.arrayOf(
+        PropTypes.exact({
+            name: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+        })
+    ).isRequired,
+};
 
 export default ProductList;
