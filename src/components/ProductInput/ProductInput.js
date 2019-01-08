@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './ProductInput.css';
 import ErrorMessage from '../common/ErrorMessage';
+
+import './ProductInput.css';
 
 const defaultState = {
     name: '',
@@ -63,7 +64,7 @@ class ProductInput extends Component {
             return this.setState({ error: 'Missing properties' });
         }
 
-        this.props.addProduct(this.state.name, this.state.price);
+        this.props.onAddClicked(this.state.name, this.state.price);
         this.setState({ ...defaultState });
     }
 }

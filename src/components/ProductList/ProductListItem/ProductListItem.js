@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import './ProductItem.css';
 
-class ProductItem extends Component {
+class ProductListItem extends Component {
     render() {
         return (
-            <div className="ProductItem-container">
+            <div className={`${this.props.className} ProductItem-container`}>
                 <span>{this.props.name}</span>
                 <span>{this.props.price}$</span>
             </div>
@@ -14,9 +14,10 @@ class ProductItem extends Component {
     }
 }
 
-ProductItem.propTypes = {
+ProductListItem.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    className: PropTypes.string,
 };
 
-export default ProductItem;
+export default ProductListItem;

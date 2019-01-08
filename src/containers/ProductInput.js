@@ -4,7 +4,7 @@ import ProductInput from '../components/ProductInput';
 import { createAddAction } from '../actions/products';
 
 const mapDispatchToProps = {
-    addProduct: createAddAction,
+    onAddClicked: createAddAction,
 };
 
 export default connect(

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ProductItem from './ProductItem';
+import ProductListItem from './ProductListItem';
 
 import './ProductList.css';
 
@@ -14,7 +14,12 @@ class ProductList extends Component {
                     <span>Price</span>
                 </div>
                 {this.props.products.map(product => (
-                    <ProductItem key={product.name} name={product.name} price={product.price} />
+                    <ProductListItem
+                        key={product.name}
+                        className="ProductList-item"
+                        name={product.name}
+                        price={product.price}
+                    />
                 ))}
             </div>
         );
