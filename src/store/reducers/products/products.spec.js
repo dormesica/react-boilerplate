@@ -18,11 +18,13 @@ describe('products reducer', () => {
 
     it('adds a new product to the list', () => {
         let state = productsReducer(defaultState, createAddAction('item1', 2.54));
-        
-        expect(state).toEqual([{
-            name: 'item1',
-            price: 2.54,
-        }]);
+
+        expect(state).toEqual([
+            {
+                name: 'item1',
+                price: 2.54,
+            },
+        ]);
     });
 
     it('removes a product from the list', () => {

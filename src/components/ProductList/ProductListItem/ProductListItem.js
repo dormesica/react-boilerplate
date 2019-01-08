@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './ProductItem.css';
+import './ProductListItem.css';
 
 class ProductListItem extends Component {
     render() {

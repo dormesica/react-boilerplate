@@ -2,7 +2,7 @@ import { actionTypes } from '../../../actions/products';
 
 const defaultState = [];
 
-export default function(state = defaultState, action) {
+export default function (state = defaultState, action) {
     let newState = state;
 
     switch (action.type) {

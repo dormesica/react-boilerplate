@@ -1,6 +1,5 @@
-
-export default store => next => action => {
+export default ({ getState, dispatch }) => next => action => {
     console.log(action);
 
-    next(action);
+    return next(action);
 };
